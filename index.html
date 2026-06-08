@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>АвтоЧасти - Каталог</title>
+<link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="header">
+<h1>АвтоЧасти</h1>
+</header>
+
+<div class="container">
+<!-- Колонка 1: Фильтры -->
+<aside class="sidebar">
+<h3>Фильтр</h3>
+<div class="filter-group">
+<label for="search"><i class='bx bx-search'></i> Поиск</label>
+<input type="text" id="search" placeholder="Введите название или артикул..."/>
+</div>
+<div class="filter-group">
+<label for="brand-filter">Марка авто</label>
+<select id="brand-filter">
+<option value="">Все марки</option>
+<option value="Volkswagen">Volkswagen</option>
+<option value="Toyota">Toyota</option>
+<option value="Hyundai">Hyundai</option>
+<option value="Ford">Ford</option>
+<option value="Mazda">Mazda</option>
+<option value="Nissan">Nissan</option>
+<option value="Honda">Honda</option>
+<option value="Kia">Kia</option>
+</select>
+</div>
+<div class="filter-group">
+<label for="category-filter">Группа запчастей</label>
+<select id="category-filter">
+<option value="">Все группы</option>
+<option value="Двигатель">Двигатель</option>
+<option value="Тормозная система">Тормозная система</option>
+<option value="Подвеска">Подвеска</option>
+<option value="Кузов и оптика">Кузов и оптика</option>
+<option value="Электрика">Электрика</option>
+<option value="Топливная система">Топливная система</option>
+<option value="Система охлаждения">Система охлаждения</option>
+<option value="Трансмиссия">Трансмиссия</option>
+</select>
+</div>
+<div class="filter-group">
+<label for="auto-type-filter">Тип авто</label>
+<select id="auto-type-filter">
+<option value="">Все типы авто</option>
+<option value="Легковой">Легковой</option>
+<option value="Грузовой">Грузовой</option>
+<option value="Внедорожник">Внедорожник</option>
+</select>
+</div>
+
+<div class="filter-group">
+<label for="price-range">Цена</label>
+<input type="range" id="price-range" min="50" max="25000" value="25000"/>
+<div id="price-value"><span>до </span><span id="price-num">25000</span> ₽</div>
+</div>
+<button class="btn-clear" id="clear-filters"><i class='bx bx-sync'></i> Сбросить фильтры</button>
+<button class="btn-toggle" id="view-toggle"><i class='bx bx-grid'></i> Переключить на список</button>
+<button class="btn-sort" id="sort-alpha"><i class='bx bx-sort-az'></i> По алфавиту (A-Z)</button>
+<button class="btn-sort" id="sort-rating"><i class='bx bx-star-half'></i> По рейтингу</button>
+<button class="btn-sort" id="sort-price-asc"><i class='bx bx-sort-up'></i> По цене ↑</button>
+<button class="btn-sort" id="sort-price-desc"><i class='bx bx-sort-down'></i> По цене ↓</button>
+</aside>
+
+<!-- Колонка 2: Каталог -->
+<main class="catalog" id="catalog-grid">
+<!-- Карточки будут добавляться через JS -->
+<p id="no-products" style="display:none; text-align:center; margin-top:3rem; font-size:1.3rem; color:#ccc;">Товаров не найдено.</p>
+</main>
+
+<!-- Колонка 3: Пустая -->
+<aside style="background-color:#2a2a2a;"></aside>
+</div>
+
+<!-- Подвал -->
+<footer>
+<address><i class='bx bx-map'></i> г. Москва, ул. Производственная, д. 15</address>
+<p><i class='bx bx-clock'></i> Самовывоз ежедневно с 9:00 до 21:00</p>
+<p><i class='bx bx-phone-call'></i> Телефон службы поддержки: +7 (495) 123-45-67</p>
+</footer>
+
+<!-- Модальное окно товара -->
+<div id="product-detail">
+  <div id="close-detail"><i class='bx bx-x'></i></div>
+  <div id="product-detail-content">
+    <div style="display:flex; flex-direction:column;">
+      <img id="detail-image" src="" alt="" />
+      <h2 id="detail-name"></h2>
+      <p><strong>Артикул:</strong> <span id="detail-sku"></span></p>
+      <p><strong>Цена:</strong> <span id="detail-price"></span></p>
+      <p><strong>В наличии:</strong> <span id="detail-stock"></span></p>
+      <p><strong>Совместимость:</strong> <span id="detail-compatibility"></span></p>
+      <p><strong>Описание:</strong> <span id="detail-description"></span></p>
+      <p><strong>Рейтинг:</strong> <span id="detail-rating"></span></p>
+      <div id="detail-reviews"></div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
